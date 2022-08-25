@@ -194,6 +194,7 @@ $(document).ready(function(){
             slidesPerView: 'auto',
             spaceBetween: 3,
             grabCursor: true,
+            
             autoHeight: false,
             freeMode: true,
             loop: false,
