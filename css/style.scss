@@ -2098,21 +2098,21 @@ a, button, .logo{
 
             .logo-u{
                 transform: translate(0, -100%);
-                transition: all .4s ease .3s;
+                transition: all .4s ease .9s;
             }
             .logo-p{
                 transform-origin: 25% 10%;
                 transform: scale(0);
 
-                transition: all .3s ease .9s;
+                transition: all .3s ease 1.5s;
             }
             .logo-a{
                 opacity: 0;
-                transition: all .6s ease 0s;
+                transition: all .6s ease .6s;
             }
             .logo-w{
                 transform: translate(0, 100%);
-                transition: all .3s ease .6s;
+                transition: all .3s ease 1.2s;
             }
         }
     }

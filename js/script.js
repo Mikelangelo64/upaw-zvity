@@ -2,14 +2,18 @@ $(document).ready(function(){
 
     //preloader
     if(document.body.clientWidth <= 750) {
-        $('.preloader').addClass('_preloader-active')
+
+        setTimeout(() => {
+            $('.preloader').addClass('_preloader-active')
+        }, 1000);
+        
 
         setTimeout(() => {
             $('.preloader').addClass('_close-preloader')
-        }, 2000);
+        }, 3000);
         setTimeout(() => {
             $('.preloader').css('display', 'none')
-        }, 3000);
+        }, 4000);
     }
 
     const isMobile = {

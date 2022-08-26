@@ -2266,27 +2266,27 @@ a, button, .logo {
 .preloader__logo svg .logo-u {
   -webkit-transform: translate(0, -100%);
           transform: translate(0, -100%);
-  -webkit-transition: all 0.4s ease 0.3s;
-  transition: all 0.4s ease 0.3s;
+  -webkit-transition: all 0.4s ease 0.9s;
+  transition: all 0.4s ease 0.9s;
 }
 .preloader__logo svg .logo-p {
   -webkit-transform-origin: 25% 10%;
           transform-origin: 25% 10%;
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-transition: all 0.3s ease 0.9s;
-  transition: all 0.3s ease 0.9s;
+  -webkit-transition: all 0.3s ease 1.5s;
+  transition: all 0.3s ease 1.5s;
 }
 .preloader__logo svg .logo-a {
   opacity: 0;
-  -webkit-transition: all 0.6s ease 0s;
-  transition: all 0.6s ease 0s;
+  -webkit-transition: all 0.6s ease 0.6s;
+  transition: all 0.6s ease 0.6s;
 }
 .preloader__logo svg .logo-w {
   -webkit-transform: translate(0, 100%);
           transform: translate(0, 100%);
-  -webkit-transition: all 0.3s ease 0.6s;
-  transition: all 0.3s ease 0.6s;
+  -webkit-transition: all 0.3s ease 1.2s;
+  transition: all 0.3s ease 1.2s;
 }
 .preloader__text {
   max-width: 272px;
