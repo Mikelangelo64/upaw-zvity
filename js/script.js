@@ -51,6 +51,36 @@ $(document).ready(function(){
     }
 
 
+    //header scroll
+    const headerInitialPos = $('.header').offset().top
+
+    if(50 < $(window).scrollTop()){
+        $('.header').addClass('_header-scroll')
+    } else{
+        $('.header').removeClass('_header-scroll')
+    }
+
+    $(window).scroll(function(){
+        const scrolled = $(this).scrollTop()
+
+        if(50 < scrolled){
+            $('.header').addClass('_header-scroll')
+        } else{
+            $('.header').removeClass('_header-scroll')
+        }
+        
+    })
+
+    //header-search
+    if(document.body.clientWidth >= 1150){
+        $('.menu__form__container input').click(function(e) {
+            $(this).parent().parent().addClass('_search-active')
+        })
+        $('.menu__form__container .form-close').click(function(e) {
+            $(this).parent().parent().removeClass('_search-active')
+        })
+        
+    }
 
     //header dropdown menu 
     $('.menu-dropdown').slideUp(300)
@@ -303,6 +333,10 @@ $(document).ready(function(){
 
     if (document.documentElement.clientWidth <= 830) {
         newsSwiper = new Swiper(nodeNewsSwiper, {
+            pagination: {
+                el: ".news-list__pagination__container.swiper-pagination",
+                type: "progressbar",
+            },
             slidesPerView: 'auto',
             spaceBetween: 3,
             //grabCursor: true,

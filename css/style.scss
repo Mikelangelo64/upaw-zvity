@@ -442,11 +442,89 @@ a, button, .logo{
 //HEADER----------------------------------------------------------------
 .header {
     padding: 37px 0;
-    position: absolute;
+    position: fixed;
+
+    transition: all .3s ease;
+    
     z-index: 9;
     width: 100%;
     top: 0;
     left: 0;
+
+    &._header-scroll{
+        padding: 25px 0;
+        background-color: #fff;
+
+        .header__logo {
+            max-width: 174px;
+            .custom-logo-link svg{
+                path:not(.path-yellow){
+                    fill: $blue;
+                }
+            }
+        }
+
+        .menu-desktop-list {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .menu {
+            .menu__form__container, 
+            .menu__burger, 
+            .menu__lang, 
+            .menu__contacts {
+                border-color: $blue-dark;
+            }
+
+            .form-search {
+                input{
+                    color: $blue-dark;
+
+                    &::placeholder{
+                        color: $blue-dark;
+                    }
+                }
+                button{
+                    svg path{
+                        fill: $blue-dark;
+                    }
+                }
+            }
+
+            .menu__burger {
+                &::before, span, &::after{
+                    background-color: $blue-dark;
+                }
+            }
+            .menu__contacts{
+                svg path {
+                    fill: $blue-dark;
+                }
+            }
+            .menu__lang {
+                .lang-item.lang-item-current {
+                    border-color: $blue-dark;
+                    color: $blue-dark;
+
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+            }
+        } 
+
+        .menu__contacts__mob{
+            border-color: $blue-dark;
+            svg path {
+                fill: $blue-dark;
+            }
+        }
+
+        @media screen and (max-width: 830px) {
+            padding: 10px 0;
+        }
+    }
 
     @media screen and (max-width: 830px) {
         padding: 17px 0;
@@ -479,6 +557,7 @@ a, button, .logo{
 
 
 .menu {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -661,6 +740,48 @@ a, button, .logo{
         flex: 0 0 109px;
         border-radius: 44px;
         padding: unset;
+        transition: all .3s ease;
+
+
+        &._search-active{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 3;
+            background-color: #fff;
+
+            input{
+                color: $blue-dark;
+                &::placeholder{
+                    color: $blue-dark;
+                }
+            }
+            button{
+                svg path {
+                    fill: $blue-dark;
+                }
+                right: 40px;    
+                
+                &.form-close {
+                    top: 19px;
+                    right: 11px;
+                    display: flex;
+                    svg{
+                        width: 17px;
+                    }
+
+                    @media screen and (max-width: 1190px) {
+                        top: 14px;
+                        svg{
+                            width: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        
 
         @media screen and (max-width: 1150px) {
             display: none;
@@ -707,7 +828,7 @@ a, button, .logo{
         &:hover {
             background-color: #fff;
             svg path {
-                fill: $blue;
+                fill: $blue-dark;
             }
         }
 
@@ -913,6 +1034,10 @@ a, button, .logo{
         width: 18px;
         @media screen and (max-width: 1190px) {
             width: 14px;
+        }
+
+        &.form-close{
+            display: none;
         }
 
         &:hover{
@@ -2720,13 +2845,22 @@ a, button, .logo{
 
 //PROJECTS-SECTION--------------------------------------------------
 .projects {
+
+    //.projects__container 
+    &__container {
+        @media screen and (max-width: 830px) {
+            max-width: unset;
+        }
+    }
     
     //.projects__wrapper 
     &__wrapper {
+        
     }
     
     //.projects__title__container 
     &__title__container {
+
         max-width: 210px;
     }
     
@@ -2758,6 +2892,10 @@ a, button, .logo{
 
         &:hover{
             border-color: $blue-dark;
+        }
+
+        @media screen and (max-width: 830px) {
+            max-width: 90%;
         }
 
         @media screen and (max-width: 430px) {
@@ -2840,6 +2978,12 @@ a, button, .logo{
     margin: 0 auto;
    // overflow: visible;
 
+   @media screen and (max-width: 830px) {
+        //max-width: unset;
+        max-width: 95%;
+        margin-right: 0;
+    }
+
     
     .swiper-wrapper {
         margin-bottom: 40px;
@@ -2861,7 +3005,24 @@ a, button, .logo{
         height: 100%;
         align-items: center;
 
-        
+        &:hover{
+            .swiper-projects__text__content {
+                background-color: $orange;
+            }
+            .swiper-projects__date , 
+            .swiper-projects__title ,
+            .swiper-projects__statistic__item,
+            .swiper-projects__more {
+                color: #fff;
+
+                svg path{
+                    fill: #fff;
+                }
+            }
+            .swiper-projects__title::before{
+                background-color: #fff;
+            }
+        }
     }
     
     //.swiper-projects__img 
@@ -2902,6 +3063,7 @@ a, button, .logo{
         background-color: #F6F6F6;
         padding: 24px 27px 32px;
         flex: 1 0 auto;
+        transition: all .3s ease;
 
         display: flex;
         flex-direction: column;
@@ -2918,6 +3080,8 @@ a, button, .logo{
         line-height: 18px;
         color: $blue-dark;
         margin-bottom: 30px;
+        transition: all .3s ease;
+
 
         @media screen and (max-width: 1030px) {
             font-size: 14px;
@@ -2929,6 +3093,8 @@ a, button, .logo{
     //.swiper-projects__title 
     &__title {
         flex: 1 0 auto;
+        transition: all .3s ease;
+
 
         max-width: 270px;
         width: 100%;
@@ -2950,6 +3116,7 @@ a, button, .logo{
         }
 
         &::before{
+            transition: all .3s ease;
             content: '';
             position: absolute;
             bottom: 0;
@@ -2976,6 +3143,8 @@ a, button, .logo{
             line-height: 22px;
             color: $blue-dark;
             margin-bottom: 5px;
+            transition: all .3s ease;
+
 
             @media screen and (max-width: 1030px) {
                 font-size: 14px;
@@ -3024,7 +3193,7 @@ a, button, .logo{
 }
 
 .projects__pagination__container {
-
+    max-width: 95%;
     &.swiper-pagination {
         position: relative;
         left: unset;
@@ -3073,6 +3242,10 @@ a, button, .logo{
     .team__container{
         position: relative;
         z-index: 1;
+
+        @media screen and (max-width: 830px) {
+            max-width: unset;
+        }
     }
 
     //.team__wrapper 
@@ -3082,6 +3255,10 @@ a, button, .logo{
     //.team__title__container 
     &__title__container {
         max-width: 590px;
+
+        @media screen and (max-width: 830px) {
+            max-width: 300px;
+        }
     }
     
     //.team__title 
@@ -3111,6 +3288,10 @@ a, button, .logo{
 
         &:hover{
             border-color: $blue-dark;
+        }
+
+        @media screen and (max-width: 830px) {
+            max-width: 90%;
         }
 
         @media screen and (max-width: 430px) {
@@ -3192,6 +3373,12 @@ a, button, .logo{
     width: 100%;
     margin: 0 auto;
    // overflow: visible;
+
+   @media screen and (max-width: 830px) {
+        //max-width: unset;
+        max-width: 95%;
+        margin-right: 0;
+    }
 
     
     .swiper-wrapper {
@@ -3296,7 +3483,7 @@ a, button, .logo{
 
 
 .team__pagination__container {
-
+    max-width: 95%;
     &.swiper-pagination {
         position: relative;
         left: unset;
@@ -3326,6 +3513,12 @@ a, button, .logo{
     background-color: $blue-dark;
     color: #fff;
     
+    //.news__container 
+    &__container{
+        @media screen and (max-width: 830px) {
+            max-width: unset;
+        }
+    }
     //.news__wrapper 
     &__wrapper {
         
@@ -3333,12 +3526,19 @@ a, button, .logo{
     
     //.news__title 
     &__title {
+        @media screen and (max-width: 830px) {
+            max-width: 95%;
+        }
     }
     
     //.news__btn 
     &__btn {
         max-width: 330px;
         margin: 0 auto;
+
+        @media screen and (max-width: 830px) {
+            max-width: 90%;
+        }
 
         @media screen and (max-width: 430px) {
             max-width: 95%;
@@ -3349,6 +3549,8 @@ a, button, .logo{
 .news-list {
     margin-bottom: 77px;
     @media screen and (max-width: 830px) {
+        max-width: 95%;
+        margin-right: 0;
         margin-bottom: 47px;
     }
 
@@ -3356,12 +3558,14 @@ a, button, .logo{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
 
+
         @media screen and (max-width: 1200px) {
             grid-template-columns: repeat(2, 1fr);
             row-gap: 24px;
         }
         @media screen and (max-width: 830px) {
             display: flex;
+            margin-bottom: 40px;
         }
     }
     .swiper-slide {
@@ -3384,6 +3588,32 @@ a, button, .logo{
         }
     }
 
+    .news-list__pagination__container{
+        max-width: 95%;
+        &.swiper-pagination {
+            position: relative;
+            left: unset;
+            top: unset;
+            height: 2px;
+            background-color: transparent;
+            //border-bottom: 1px solid #BEBEBE;
+    
+            &::before{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: #BEBEBE;
+            }
+    
+            .swiper-pagination-progressbar-fill{
+                background-color: $orange;
+            }
+        }
+    }
+    
     
     //.news-list__item 
     &__item {
@@ -3393,6 +3623,12 @@ a, button, .logo{
         height: 100%;
         display: flex;
         flex-direction: column;
+
+        &:hover{
+            .news-list__img{
+                border-color: $orange;
+            }
+        }
 
         @media screen and (max-width: 830px) {
             margin-right: unset;
@@ -3407,6 +3643,8 @@ a, button, .logo{
         padding-bottom: 195px;
         overflow: hidden;
         border-radius: 30px;
+        transition: all .3s ease;
+        border: 2px solid transparent;
 
         @media screen and (max-width: 1200px) {
             //padding-bottom: 333px;

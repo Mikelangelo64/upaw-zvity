@@ -446,11 +446,78 @@ a, button, .logo {
 
 .header {
   padding: 37px 0;
-  position: absolute;
+  position: fixed;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   z-index: 9;
   width: 100%;
   top: 0;
   left: 0;
+}
+.header._header-scroll {
+  padding: 25px 0;
+  background-color: #fff;
+}
+.header._header-scroll .header__logo {
+  max-width: 174px;
+}
+.header._header-scroll .header__logo .custom-logo-link svg path:not(.path-yellow) {
+  fill: #006ED2;
+}
+.header._header-scroll .menu-desktop-list {
+  visibility: hidden;
+  pointer-events: none;
+}
+.header._header-scroll .menu .menu__form__container,
+.header._header-scroll .menu .menu__burger,
+.header._header-scroll .menu .menu__lang,
+.header._header-scroll .menu .menu__contacts {
+  border-color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input::-webkit-input-placeholder {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input::-moz-placeholder {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input:-ms-input-placeholder {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input::-ms-input-placeholder {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search input::placeholder {
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .form-search button svg path {
+  fill: #2A4F5E;
+}
+.header._header-scroll .menu .menu__burger::before, .header._header-scroll .menu .menu__burger span, .header._header-scroll .menu .menu__burger::after {
+  background-color: #2A4F5E;
+}
+.header._header-scroll .menu .menu__contacts svg path {
+  fill: #2A4F5E;
+}
+.header._header-scroll .menu .menu__lang .lang-item.lang-item-current {
+  border-color: #2A4F5E;
+  color: #2A4F5E;
+}
+.header._header-scroll .menu .menu__lang .lang-item.lang-item-current:hover {
+  color: #fff;
+}
+.header._header-scroll .menu__contacts__mob {
+  border-color: #2A4F5E;
+}
+.header._header-scroll .menu__contacts__mob svg path {
+  fill: #2A4F5E;
+}
+@media screen and (max-width: 830px) {
+  .header._header-scroll {
+    padding: 10px 0;
+  }
 }
 @media screen and (max-width: 830px) {
   .header {
@@ -490,6 +557,7 @@ a, button, .logo {
   }
 }
 .menu {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -690,6 +758,58 @@ a, button, .logo {
           flex: 0 0 109px;
   border-radius: 44px;
   padding: unset;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.menu .menu__form__container._search-active {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  background-color: #fff;
+}
+.menu .menu__form__container._search-active input {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active input::-webkit-input-placeholder {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active input::-moz-placeholder {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active input:-ms-input-placeholder {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active input::-ms-input-placeholder {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active input::placeholder {
+  color: #2A4F5E;
+}
+.menu .menu__form__container._search-active button {
+  right: 40px;
+}
+.menu .menu__form__container._search-active button svg path {
+  fill: #2A4F5E;
+}
+.menu .menu__form__container._search-active button.form-close {
+  top: 19px;
+  right: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu .menu__form__container._search-active button.form-close svg {
+  width: 17px;
+}
+@media screen and (max-width: 1190px) {
+  .menu .menu__form__container._search-active button.form-close {
+    top: 14px;
+  }
+  .menu .menu__form__container._search-active button.form-close svg {
+    width: 14px;
+  }
 }
 @media screen and (max-width: 1150px) {
   .menu .menu__form__container {
@@ -733,7 +853,7 @@ a, button, .logo {
   background-color: #fff;
 }
 .menu__contacts.menu__contacts__mob:hover svg path {
-  fill: #006ED2;
+  fill: #2A4F5E;
 }
 @media screen and (max-width: 590px) {
   .menu__contacts.menu__contacts__mob {
@@ -998,6 +1118,9 @@ a, button, .logo {
   .form-search button {
     width: 14px;
   }
+}
+.form-search button.form-close {
+  display: none;
 }
 .form-search button:hover svg path {
   fill: #006ED2;
@@ -2955,6 +3078,11 @@ a, button, .logo {
   height: auto;
 }
 
+@media screen and (max-width: 830px) {
+  .projects__container {
+    max-width: unset;
+  }
+}
 .projects__title__container {
   max-width: 210px;
 }
@@ -2974,6 +3102,11 @@ a, button, .logo {
 }
 .projects__btn:hover {
   border-color: #2A4F5E;
+}
+@media screen and (max-width: 830px) {
+  .projects__btn {
+    max-width: 90%;
+  }
 }
 @media screen and (max-width: 430px) {
   .projects__btn {
@@ -3061,6 +3194,12 @@ a, button, .logo {
   width: 100%;
   margin: 0 auto;
 }
+@media screen and (max-width: 830px) {
+  .swiper-projects {
+    max-width: 95%;
+    margin-right: 0;
+  }
+}
 .swiper-projects .swiper-wrapper {
   margin-bottom: 40px;
 }
@@ -3085,6 +3224,24 @@ a, button, .logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.swiper-projects__card:hover .swiper-projects__text__content {
+  background-color: #FFB11A;
+}
+.swiper-projects__card:hover .swiper-projects__date,
+.swiper-projects__card:hover .swiper-projects__title,
+.swiper-projects__card:hover .swiper-projects__statistic__item,
+.swiper-projects__card:hover .swiper-projects__more {
+  color: #fff;
+}
+.swiper-projects__card:hover .swiper-projects__date svg path,
+.swiper-projects__card:hover .swiper-projects__title svg path,
+.swiper-projects__card:hover .swiper-projects__statistic__item svg path,
+.swiper-projects__card:hover .swiper-projects__more svg path {
+  fill: #fff;
+}
+.swiper-projects__card:hover .swiper-projects__title::before {
+  background-color: #fff;
 }
 .swiper-projects__img {
   border-radius: 15px;
@@ -3127,6 +3284,8 @@ a, button, .logo {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3146,6 +3305,8 @@ a, button, .logo {
   line-height: 18px;
   color: #2A4F5E;
   margin-bottom: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 1030px) {
   .swiper-projects__date {
@@ -3158,6 +3319,8 @@ a, button, .logo {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   max-width: 270px;
   width: 100%;
   font-family: "Montserrat", sans-serif;
@@ -3179,6 +3342,8 @@ a, button, .logo {
   }
 }
 .swiper-projects__title::before {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   content: "";
   position: absolute;
   bottom: 0;
@@ -3204,6 +3369,8 @@ a, button, .logo {
   line-height: 22px;
   color: #2A4F5E;
   margin-bottom: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 1030px) {
   .swiper-projects__statistic__item {
@@ -3247,6 +3414,9 @@ a, button, .logo {
   transition: all 0.3s ease;
 }
 
+.projects__pagination__container {
+  max-width: 95%;
+}
 .projects__pagination__container.swiper-pagination {
   position: relative;
   left: unset;
@@ -3291,8 +3461,18 @@ a, button, .logo {
   position: relative;
   z-index: 1;
 }
+@media screen and (max-width: 830px) {
+  .team .team__container {
+    max-width: unset;
+  }
+}
 .team__title__container {
   max-width: 590px;
+}
+@media screen and (max-width: 830px) {
+  .team__title__container {
+    max-width: 300px;
+  }
 }
 .team__swiper__container {
   position: relative;
@@ -3310,6 +3490,11 @@ a, button, .logo {
 }
 .team__btn:hover {
   border-color: #2A4F5E;
+}
+@media screen and (max-width: 830px) {
+  .team__btn {
+    max-width: 90%;
+  }
 }
 @media screen and (max-width: 430px) {
   .team__btn {
@@ -3396,6 +3581,12 @@ a, button, .logo {
   max-width: 90%;
   width: 100%;
   margin: 0 auto;
+}
+@media screen and (max-width: 830px) {
+  .swiper-team {
+    max-width: 95%;
+    margin-right: 0;
+  }
 }
 .swiper-team .swiper-wrapper {
   margin-bottom: 40px;
@@ -3496,6 +3687,9 @@ a, button, .logo {
   }
 }
 
+.team__pagination__container {
+  max-width: 95%;
+}
 .team__pagination__container.swiper-pagination {
   position: relative;
   left: unset;
@@ -3520,9 +3714,24 @@ a, button, .logo {
   background-color: #2A4F5E;
   color: #fff;
 }
+@media screen and (max-width: 830px) {
+  .news__container {
+    max-width: unset;
+  }
+}
+@media screen and (max-width: 830px) {
+  .news__title {
+    max-width: 95%;
+  }
+}
 .news__btn {
   max-width: 330px;
   margin: 0 auto;
+}
+@media screen and (max-width: 830px) {
+  .news__btn {
+    max-width: 90%;
+  }
 }
 @media screen and (max-width: 430px) {
   .news__btn {
@@ -3535,6 +3744,8 @@ a, button, .logo {
 }
 @media screen and (max-width: 830px) {
   .news-list {
+    max-width: 95%;
+    margin-right: 0;
     margin-bottom: 47px;
   }
 }
@@ -3556,6 +3767,7 @@ a, button, .logo {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: 40px;
   }
 }
 .news-list .swiper-slide {
@@ -3576,6 +3788,28 @@ a, button, .logo {
     max-width: 246px;
   }
 }
+.news-list .news-list__pagination__container {
+  max-width: 95%;
+}
+.news-list .news-list__pagination__container.swiper-pagination {
+  position: relative;
+  left: unset;
+  top: unset;
+  height: 2px;
+  background-color: transparent;
+}
+.news-list .news-list__pagination__container.swiper-pagination::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #BEBEBE;
+}
+.news-list .news-list__pagination__container.swiper-pagination .swiper-pagination-progressbar-fill {
+  background-color: #FFB11A;
+}
 .news-list__item {
   max-width: calc(100% - 50px);
   margin-right: 50px;
@@ -3589,6 +3823,9 @@ a, button, .logo {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.news-list__item:hover .news-list__img {
+  border-color: #FFB11A;
+}
 @media screen and (max-width: 830px) {
   .news-list__item {
     margin-right: unset;
@@ -3601,6 +3838,9 @@ a, button, .logo {
   padding-bottom: 195px;
   overflow: hidden;
   border-radius: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 @media screen and (max-width: 1200px) {
   .news-list__img {
