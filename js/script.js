@@ -420,7 +420,44 @@ $(document).ready(function(){
         $(this).next().addClass('_next-active')
     })
 
-    var swiperSteps = new Swiper(".swiper.banner-news-swiper", {
+    var swiperStepsParthner = new Swiper(".swiper.how-be-parthner-list", {
+
+        pagination: {
+          el: ".how-be-parthner-list__pagination__container.swiper-pagination",
+          type: "progressbar",
+        },
+        // navigation: {
+        //   nextEl: ".projects__btns__container .swiper-button-next",
+        //   prevEl: ".projects__btns__container .swiper-button-prev",
+        // },
+
+        slidesPerView: 1,
+        spaceBetween: 30,
+        freeMode: true,
+        loop: false,
+        //grabCursor: true,
+
+        breakpoints: {
+            1020:{
+                //freeMode: false,
+                spaceBetween: 42,
+                slidesPerView: 2,
+                centeredSlides: false,
+                grabCursor: true,
+                //slidesPerGroup: 1,
+            },
+            1175:{
+                slidesPerView: 3,
+                centeredSlides: false,
+                grabCursor: true,
+                pagination: false,
+                //slidesPerGroup: 1,
+
+            },
+        }
+      });
+
+    var swiperNewsBanner = new Swiper(".swiper.banner-news-swiper", {
 
         pagination: {
           el: ".banner-news__pagination__container.swiper-pagination",
