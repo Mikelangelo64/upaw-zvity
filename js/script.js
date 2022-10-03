@@ -247,6 +247,22 @@ $(document).ready(function(){
         })    
     }
 
+    //filters-dropdown
+    $('.report-filter__list').fadeOut(0)
+    if(document.body.clientWidth > 830){
+        $('.report-filter').hover(function(e){
+            $(this).toggleClass('active')
+            const currentList = $(this).children('.report-filter__list')
+            $(currentList).fadeToggle(300)
+        })
+    }else {
+        $('.report-filter').click(function(e){
+            $(this).toggleClass('active')
+            const currentList = $(this).children('.report-filter__list')
+            $(currentList).fadeToggle(300)
+        })
+    }
+
     //swipers
 
     //swiper-projects
@@ -467,5 +483,27 @@ $(document).ready(function(){
         spaceBetween: 0,
         freeMode: false,
         loop: false,
+        on:{
+            init: setCurrentCounter,
+            slideChange: counterChange,
+        }
     })
+
+    function setCurrentCounter(swiper){
+        let currentCounts = document.querySelectorAll('.banner-news__counter .current')
+        let allCounts = document.querySelectorAll('.banner-news__counter .all')
+
+        let index = swiper.activeIndex + 1;
+        let swiperLength = swiper.slides.length
+
+        currentCounts.forEach(currentCount => currentCount.innerHTML = index)
+        allCounts.forEach( allCount => allCount.innerHTML = swiperLength)
+    }
+    function counterChange(swiper) {
+        let currentCounts = document.querySelectorAll('.banner-news__counter .current')
+        let index = swiper.activeIndex + 1;
+        currentCounts.forEach(currentCount => currentCount.innerHTML = index)
+    }
+
+
 })
