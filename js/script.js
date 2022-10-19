@@ -80,12 +80,34 @@ $(document).ready(function(){
             }
             e.preventDefault()
             $(this).parent().parent().addClass('_search-active')
+            $('.menu-btns .menu__help').css('opacity', '0')
+            $('.menu-btns .menu__burger').css('opacity', '0')
+            $('.menu-btns .menu__lang').css('opacity', '0')
+            $('.menu-btns .menu__contacts').css('opacity', '0')
         })
         $('.menu__form__container .form-close').click(function(e) {
             $(this).parent().parent().removeClass('_search-active')
+            $('.menu-btns .menu__help').css('opacity', '1')
+            $('.menu-btns .menu__burger').css('opacity', '1')
+            $('.menu-btns .menu__lang').css('opacity', '1')
+            $('.menu-btns .menu__contacts').css('opacity', '1')
         })
-        
     }
+
+    $(window).resize(function(){
+        if(document.body.clientWidth < 1150 && $('.menu__form__container').hasClass('_search-active')) {
+            $('.menu-btns .menu__help').css('opacity', '1')
+            $('.menu-btns .menu__burger').css('opacity', '1')
+            $('.menu-btns .menu__lang').css('opacity', '1')
+            $('.menu-btns .menu__contacts').css('opacity', '1')
+        }
+        if(document.body.clientWidth >= 1150 && $('.menu__form__container').hasClass('_search-active')) {
+            $('.menu-btns .menu__help').css('opacity', '0')
+            $('.menu-btns .menu__burger').css('opacity', '0')
+            $('.menu-btns .menu__lang').css('opacity', '0')
+            $('.menu-btns .menu__contacts').css('opacity', '0')
+        }
+    })
 
     //header dropdown menu 
     $('.menu-dropdown').slideUp(300)
@@ -107,6 +129,9 @@ $(document).ready(function(){
             appearDropDown.call($(this).children($('.menu__item__with__dop')), e)
         })
     }
+    $('.menu-big .menu__item__with__dop').focus(function(e){
+        appearDropDown.call(this, e)
+    })
 
     function appearDropDown(e){
         $(this).toggleClass('_active-dropdown')
@@ -474,7 +499,10 @@ $(document).ready(function(){
       });
 
     var swiperNewsBanner = new Swiper(".swiper.banner-news-swiper", {
-
+        navigation: {
+          nextEl: ".banner-news__btns__container .swiper-button-next",
+          prevEl: ".banner-news__btns__container .swiper-button-prev",
+        },
         pagination: {
           el: ".banner-news__pagination__container.swiper-pagination",
         },

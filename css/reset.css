@@ -125,7 +125,7 @@ html {
  */
 
 a:focus {
-    outline: thin dotted;
+    outline: unset;
 }
 
 /**
@@ -330,12 +330,12 @@ textarea {
 
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #FFB11A;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #FFB11A;
     text-shadow: none;
 }
 
